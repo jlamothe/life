@@ -1,0 +1,51 @@
+name:                life
+version:             0.0.0
+github:              "jlamothe/life"
+license:             GPL-3
+author:              "Jonathan Lamothe"
+maintainer:          "jlamothe1980@gmail.com"
+copyright:           "Jonathan Lamothe"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            Implementation of Conway's Game of Life
+category:            Games
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/jlamothe/life#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+ghc-options:
+- -Wall
+
+library:
+  source-dirs: src
+
+executables:
+  life:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - life
+
+tests:
+  life-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - life
